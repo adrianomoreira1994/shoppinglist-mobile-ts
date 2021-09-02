@@ -4,7 +4,28 @@ import { Entypo, AntDesign, FontAwesome } from '@expo/vector-icons';
 
 import { Text, View, TextInput, KeyboardAvoidingView, TouchableOpacity, Platform, StatusBar, Alert } from 'react-native';
 
-import styles from './styles';
+import {
+  Container,
+  Header,
+  LogoLabel,
+  Form,
+  FormGroup,
+  ContainerIcon,
+  ContainerIconActiveEmail,
+  ContainerIconActivePassword,
+  ContainerInput,
+  ContainerInputActiveEmail,
+  ContainerInputActivePassword,
+  Input,
+  Label,
+  ContainerButton,
+  Button,
+  LabelButton,
+  ContainerNotMember,
+  NotMember,
+  NotMemberButton,
+  NotMemberButtonLabel
+} from './styles';
 
 const SignIn = () => {
   const passwordInputRef = useRef<TextInput>(null);
@@ -24,31 +45,29 @@ const SignIn = () => {
     <>
       <StatusBar translucent barStyle="light-content" backgroundColor="#3C5350" />
 
-      <KeyboardAvoidingView
-        style={styles.container}
+      <Container
         behavior={Platform.OS === "ios" ? "padding" : undefined}
         enabled
       >
-        <View style={styles.header}>
+        <Header>
           <FontAwesome name="opencart" size={72} color="#FFCEA3" />
-          <Text style={styles.logoLabel}>Shopping List</Text>
-        </View>
+          <LogoLabel>Shopping List</LogoLabel>
+        </Header>
 
-        <View style={styles.form}>
-          <View style={styles.formGroup}>
-            <View style={!emailFocus ? styles.containerIcon : styles.containerIconActiveEmail}>
+        <Form>
+          <FormGroup>
+            <ContainerIcon>
               <Entypo name="email" size={16} color="#FFCEA3" />
-            </View>
+            </ContainerIcon>
 
-            <View style={!emailFocus ? styles.containerInput : styles.containerInputActiveEmail}>
-              <Text style={styles.label}>E-mail</Text>
-              <TextInput
+            <ContainerInput>
+              <Label>E-mail</Label>
+              <Input
                 autoCapitalize="none"
                 autoCorrect={false}
                 keyboardType="email-address"
                 returnKeyType="next"
                 onSubmitEditing={() => passwordInputRef?.current?.focus()}
-                style={styles.input}
                 placeholderTextColor="#FFF"
                 onChangeText={(value) => setEmail(value)}
                 onFocus={() => {
@@ -56,17 +75,17 @@ const SignIn = () => {
                   setPasswordFocus(false);
                 }}
               />
-            </View>
-          </View>
+            </ContainerInput>
+          </FormGroup>
 
-          <View style={styles.formGroup}>
-            <View style={!passwordFocus ? styles.containerIcon : styles.containerIconActivePassword}>
+          <FormGroup>
+            <ContainerIcon>
               <AntDesign name="lock" size={17} color="#FFCEA3" />
-            </View>
+            </ContainerIcon>
 
-            <View style={!passwordFocus ? styles.containerInput : styles.containerInputActivePassword}>
-              <Text style={styles.label}>Password</Text>
-              <TextInput
+            <ContainerInput>
+              <Label>Password</Label>
+              <Input
                 ref={passwordInputRef}
                 autoCapitalize="none"
                 autoCorrect={false}
@@ -74,7 +93,6 @@ const SignIn = () => {
                 textContentType="newPassword"
                 returnKeyType="send"
                 onSubmitEditing={handleLoginSubmit}
-                style={styles.input}
                 placeholderTextColor="#FFF"
                 onChangeText={(value) => setPassword(value)}
                 onFocus={() => {
@@ -82,28 +100,26 @@ const SignIn = () => {
                   setEmailFocus(false);
                 }}
               />
-            </View>
-          </View>
+            </ContainerInput>
+          </FormGroup>
 
-          <View style={styles.containerButton}>
-            <RectButton style={styles.button} onPress={handleLoginSubmit}>
-              <Text style={styles.labelButton}>Log in</Text>
-            </RectButton>
+          <ContainerButton>
+            <Button onPress={handleLoginSubmit}>
+              <LabelButton>Log in</LabelButton>
+            </Button>
 
-            <View
-              style={styles.containerNotMember}
-            >
-              <Text style={styles.notMember}>
+            <ContainerNotMember>
+              <NotMember>
                 Not a member?
-              </Text>
+              </NotMember>
 
-              <TouchableOpacity style={styles.notMemberButton}>
-                <Text style={styles.notMemberButtonLabel}>Join now</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </KeyboardAvoidingView>
+              <NotMemberButton>
+                <NotMemberButtonLabel>Join now</NotMemberButtonLabel>
+              </NotMemberButton>
+            </ContainerNotMember>
+          </ContainerButton>
+        </Form>
+      </Container>
     </>
   );
 }

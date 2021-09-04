@@ -18,9 +18,7 @@ const Index = () => {
   }
 
   return (
-    <>
-      <Routes />
-    </>
+    <Routes />
   );
 }
 

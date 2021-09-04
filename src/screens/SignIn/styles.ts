@@ -1,23 +1,23 @@
 import { RectButton } from 'react-native-gesture-handler';
-import styled from "styled-components/native"
+import styled from "styled-components/native";
 
-export const Container = styled.View`
+export const Container = styled.KeyboardAvoidingView`
     flex: 1;
     background-color: #435C59;
 `;
 
 export const Header = styled.View`
-    height: 300;
+    height: 300px;
     align-items: center;
     justify-content: center;
     background-color: #3C5350;
 `;
 
 export const LogoLabel = styled.Text`
-    font-size: 40;
+    font-size: 40px;
     font-family: AllanBold;
     color: #FFCEA3;
-    margin-top: 20;
+    margin-top: 20px;
 `;
 export const Form = styled.View`
     flex: 1;
@@ -90,12 +90,12 @@ export const Label = styled.Text`
     font-family: "OpenSansSemiBold";
 `;
 
-export const ContainerButton = styled.VIew`
+export const ContainerButton = styled.View`
     margin-top: 20px;
 `;
 
 export const Button = styled(RectButton)`
-    background-color: "#FFCEA3";
+    background-color: #FFCEA3;
     border-radius: 25px;
     height: 50px;
     align-items: center;
@@ -115,7 +115,7 @@ export const ContainerNotMember = styled.View`
     margin-top: 20px;
 `;
 
-export const NotMember = styled.View`
+export const NotMember = styled.Text`
     margin-right: 5px;
     color: #96ADAB;
     align-items: center;
@@ -124,7 +124,7 @@ export const NotMember = styled.View`
 
 export const NotMemberButton = styled.TouchableOpacity``;
 
-export const NotMemberButtonLabel = styled.View`
+export const NotMemberButtonLabel = styled.Text`
     color: #FFCEA3;
     font-family: "OpenSansRegular";
 `;

@@ -1,8 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { RectButton } from "react-native-gesture-handler";
+import { Platform, StatusBar, TextInput } from 'react-native';
 import { Entypo, AntDesign, FontAwesome } from '@expo/vector-icons';
-
-import { Text, View, TextInput, KeyboardAvoidingView, TouchableOpacity, Platform, StatusBar, Alert } from 'react-native';
 
 import {
   Container,
@@ -28,7 +26,8 @@ import {
 } from './styles';
 
 const SignIn = () => {
-  const passwordInputRef = useRef<TextInput>(null);
+  const passwordInputRef = useRef<TextInput>();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailFocus, setEmailFocus] = useState(false);
@@ -37,8 +36,6 @@ const SignIn = () => {
   const handleLoginSubmit = () => {
     setEmailFocus(false);
     setPasswordFocus(false);
-
-    Alert.alert(email);
   }
 
   return (
